@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://nutriapp:nutriapp123@cluster0.0ifploi.mongodb.net/?retryWrites=true&w=majority
+      database: nutriapp
