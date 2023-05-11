@@ -8,11 +8,11 @@
 		<version>2.7.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.nutriapp</groupId>
+	<groupId>com.nutrition</groupId>
 	<artifactId>api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>nutriapp</name>
-	<description>Project for nutriapp</description>
+	<name>nutrition</name>
+	<description>Nutrition module</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
