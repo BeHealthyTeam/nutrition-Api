@@ -1,4 +1,4 @@
-run-name: Build and Deploy | BeHealty - User - API
+run-name: Build and Deploy | BeHealty - Nutrition - API
 env: 
   FULL_IMAGE_NAME: behealthy-apis:nutrition-api
  
@@ -44,7 +44,7 @@ jobs:
       DOCKER_PWD:  ${{ secrets.DOCKER_USER_TOKEN }}
       EC2_TAG_NAME: api
       SERVICE_PORT: ${{ secrets.PORT }}
-      EC2_FULL_NAME: behealty:nutrition-api
+      EC2_FULL_NAME: behealthy-apis:nutrition-api
     steps:
       - name: Pull and Run Image
         uses: appleboy/ssh-action@master
@@ -58,5 +58,5 @@ jobs:
             docker stop $(docker ps -a -q)
             docker rm $(docker ps -a -q)
             docker rmi $(docker images -q)
-            docker image pull contatotendelfc/$EC2_FULL_NAME
+            docker image pull ${{ secrets.DOCKER_USERNAME }}/$EC2_FULL_NAME
             docker run -d --name $EC2_TAG_NAME -p $SERVICE_PORT:$SERVICE_PORT griebelergabriel/$EC2_FULL_NAME
