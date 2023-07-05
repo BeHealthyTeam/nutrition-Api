@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/nutricao")
+@RequestMapping("/nutrition")
 public class NutricaoController {
 
     private final NutricaoService nutricaoService;
@@ -20,26 +20,26 @@ public class NutricaoController {
         this.nutricaoService = nutricaoService;
     }
 
-    @PostMapping("/alimento/cadastrar")
+    @PostMapping("/food")
     public void cadastrarAlimento(@Valid @RequestBody CadastrarAlimentoRequest request){
         nutricaoService.cadastrarAlimento(request);
     };
-    @GetMapping("/alimentos")
+    @GetMapping("/food")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Alimento> listarAlimentos() {
         return nutricaoService.listarAlimentos();
     }
 
-    @GetMapping("/alimentos/{charOrWord}")
+    @GetMapping("/food/{charOrWord}")
     public List<Alimento> listarAlimentosBuscados(@PathVariable String charOrWord) {
         return nutricaoService.listarAlimentosBuscados(charOrWord);
     }
 
-    @PostMapping("/receita/cadastrar")
+    @PostMapping("/recipe")
     public void cadastrarReceita(@Valid @RequestBody CadastrarReceitaRequest request){
         nutricaoService.cadastrarReceita(request);
     };
-    @GetMapping("/receitas")
+    @GetMapping("/recipe")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Receita> listarReceitas() {
         return nutricaoService.listarReceitas();
