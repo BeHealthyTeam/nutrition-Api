@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -12,8 +16,16 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Meal {
-    private List<Recipe> recipes;
-    private List<Food> foods;
+public class Meal{
+
+    @Id
+    @NotNull
+    private String id;
+    @NotNull
+    private Date date;
+    @NotNull
+    private String dayTurn;
+    private List<FoodAsMeal> foodsMeal;
+    private List<RecipeAsMeal> recipesMeal;
 
 }
