@@ -7,6 +7,7 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,7 +23,9 @@ public class Meal{
     @NotNull
     private String id;
     @NotNull
-    private Date date;
+    private String userId;
+    @NotNull
+    private LocalDate date;
     @NotNull
     private String dayTurn;
     private List<FoodAsMeal> foodsMeal;

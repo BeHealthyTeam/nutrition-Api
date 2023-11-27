@@ -19,5 +19,6 @@ public class Recipe {
     @NotNull
     private String name;
     private List<Ingredient> ingredients;
+    private Double totalWeigth;
 
 }

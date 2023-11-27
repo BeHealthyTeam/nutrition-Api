@@ -9,6 +9,7 @@ public class MealMapper {
 
         return Meal.builder()
                 .date(request.getDate())
+                .userId(request.getUserId())
                 .dayTurn(request.getDayTurn())
                 .foodsMeal(request.getFoodsMeal())
                 .recipesMeal(request.getRecipesMeal())

@@ -18,50 +18,48 @@ public class Food {
     @NotNull
     private String name;
     @NotNull
-    private String unity;
+    private Double energy;
     @NotNull
-    private float energy;
+    private Double fiber;
     @NotNull
-    private float fiber;
+    private Double protein;
     @NotNull
-    private float protein;
+    private Double lipids;
     @NotNull
-    private float lipids;
+    private Double cholesterol;
     @NotNull
-    private float cholesterol;
+    private Double carbo;
     @NotNull
-    private float carbo;
+    private Double calcium;
     @NotNull
-    private float calcium;
+    private Double magnesium;
     @NotNull
-    private float magnesium;
+    private Double manganese;
     @NotNull
-    private float manganese;
+    private Double phosphor;
     @NotNull
-    private float phosphor;
+    private Double iron;
     @NotNull
-    private float iron;
+    private Double sodium;
     @NotNull
-    private float sodium;
+    private Double potassium;
     @NotNull
-    private float potassium;
+    private Double zinc;
     @NotNull
-    private float zinc;
+    private Double saturated;
     @NotNull
-    private float saturated;
+    private Double monounsaturated;
     @NotNull
-    private float monounsaturated;
+    private Double polyunsaturated;
     @NotNull
-    private float polyunsaturated;
+    private Double b1;
     @NotNull
-    private float b12;
+    private Double b2;
     @NotNull
-    private float b2;
+    private Double b6;
     @NotNull
-    private float b6;
+    private Double b3;
     @NotNull
-    private float b3;
-    @NotNull
-    private float vitaminC;
+    private Double vitaminC;
 
 }

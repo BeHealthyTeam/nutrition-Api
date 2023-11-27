@@ -7,10 +7,11 @@ import com.nutrition.api.domain.Recipe;
 import com.nutrition.api.requests.CreateMealRequest;
 import com.nutrition.api.requests.CreateRecipeRequest;
 import com.nutrition.api.service.NutritionService;
-import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
-import java.util.Date;
+
+import com.nutrition.api.utils.ConsumedNutrientsDTO;
+import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,6 @@ import java.util.List;
 public class NutritionController {
 
     private final NutritionService nutritionService;
-
     public NutritionController(NutritionService nutritionService){
         this.nutritionService = nutritionService;
     }
@@ -28,6 +28,7 @@ public class NutritionController {
     public void createFood(@Valid @RequestBody CreateFoodRequest request){
         nutritionService.createFood(request);
     };
+
     @GetMapping("/food")
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Food> getAllFoods() {
@@ -49,6 +50,7 @@ public class NutritionController {
     public List<Recipe> getAllRecipes() {
         return nutritionService.getAllRecipes();
     }
+
     @GetMapping("/recipe/{charOrWord}")
     public List<Recipe> searchRecipe(@PathVariable String charOrWord) {
         return nutritionService.searchRecipe(charOrWord);
@@ -57,7 +59,6 @@ public class NutritionController {
     // MEALS
     @PostMapping("/meal")
     public void createMeal(@Valid @RequestBody CreateMealRequest request){
-        System.out.println(request);
         nutritionService.createMeal(request);
     };
 
@@ -68,9 +69,21 @@ public class NutritionController {
     }
 
     @GetMapping("/meal/{date}")
-    public List<Meal> searchMealByDate(@PathVariable Date date){
+    public List<Meal> searchMealByDate(@PathVariable("date") LocalDate date) {
         return nutritionService.findAllMealsByDate(date);
     }
 
+    @GetMapping("/meal/calendar/{yearAndMonth}")
+    public List<Meal> searchMealByMonth(@PathVariable("yearAndMonth") String yearAndMonth) {
+        return nutritionService.findAllMealsByMonth(yearAndMonth);
+    }
 
+    @GetMapping("/report/consumedNutrientsByMonth/{yearAndMonth}")
+    public ConsumedNutrientsDTO consumedNutrientsInMonth(@PathVariable("yearAndMonth") String yearAndMonth){
+        return nutritionService.allNutrientsByMonth(yearAndMonth);
+    }
+    @GetMapping("/report/consumedNutrientsByWeek/{yearAndMonth}/{week}")
+    public ConsumedNutrientsDTO consumedNutrientsInWeek(@PathVariable("yearAndMonth") String yearAndMonth, @PathVariable("week") Integer week){
+        return nutritionService.allNutrientsByWeek(yearAndMonth, week);
+    }
 }
